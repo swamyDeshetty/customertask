@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleManagement\LoginAuthController;
 use App\Http\Controllers\RoleManagement\AdminController;
 use App\Http\Controllers\RoleManagement\SuperAdminController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\NewApiController;
 
 
 
@@ -125,9 +126,9 @@ Route::get('/new', [LoginAuthController::class, 'new']);
 
 // Customer task 
 
+
 // Route for the customer form 
 Route::get('/index', [CustomerController::class, 'index']);
-
 
 // Saving the form_data
 
@@ -144,6 +145,25 @@ Route::post('/display/filter',[CustomerController::class, 'filter'])->name('cust
 Route::get('customers/{customer}/edit', [CustomerController::class, 'show']);
 
 Route::put('/customers/{customerId}/update', [CustomerController::class, 'update'])->name('customer.update');
+
+
+
+
+// External api calling
+
+Route::get('/apinew', [NewApiController::class, 'makeApiRequest']);
+Route::post('/api-curl', [ApiController::class, 'callApiWithCurl']);
+
+// 
+
+// routes/web.php
+
+// use App\Http\Controllers\;
+
+Route::get('/guzzleapi', [NewApiController::class, 'guzzleapi']);
+Route::get('/curlapi', [NewApiController::class, 'CurlApi']);
+
+
 
 
 

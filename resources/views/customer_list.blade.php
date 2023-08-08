@@ -29,6 +29,7 @@
         <th>Email</th>
         <th>Phone</th>
         <th>Date_of_birth</th>
+        <th>Created_at</th>
         <th class="text-center">Action</th>
       </tr>
     </thead>
@@ -40,6 +41,7 @@
         <td>{{$user->email}}</td>
         <td>{{$user->phonenumber}}</td>
         <td>{{$user->date_of_birth}}</td>
+        <td>{{$user->created_at}}</td>
         <td class="text-center">
           <a class="btn btn-primary" href="{{ url('customers/'.$user->id.'/edit') }}">Edit</a>
         </td>

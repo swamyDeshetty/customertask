@@ -50,9 +50,10 @@ class CustomerController extends Controller
     // filter module 
     public function filter(Request $request)
     {
+    
         $selectedDate = $request->input('selected_date');
 
-        $data = Customer::whereDate('date_of_birth', '=', $selectedDate)->get();
+        $data = Customer::whereDate('created_at', '=', $selectedDate)->get(); // if searched date and the dob of any customer is equal we need to fetch the data
 
         return view('customer_list', compact('data'));
     }
@@ -81,7 +82,7 @@ class CustomerController extends Controller
 
         $customer->save();
 
-        return redirect()->back()->with('success', 'Customer updated successfully');
+        return redirect('display')->with('success', 'Customer updated successfully');
     }
     
 

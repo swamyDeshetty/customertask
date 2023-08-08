@@ -50,7 +50,7 @@ h4{
          
             <div class="form-group">
                 <label for="exampleInputPassword1">Date_of_birth</label>
-                <input type="date" class="form-control" name="date_of_birth" id="exampleInputPassword1" placeholder="Password">
+                <input type="date" class="form-control" name="date_of_birth" id="exampleInputPassword1" >
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
