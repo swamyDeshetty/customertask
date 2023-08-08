@@ -149,14 +149,6 @@ Route::put('/customers/{customerId}/update', [CustomerController::class, 'update
 
 
 
-// External api calling
-
-Route::get('/apinew', [NewApiController::class, 'makeApiRequest']);
-Route::post('/api-curl', [ApiController::class, 'callApiWithCurl']);
-
-// 
-
-// routes/web.php
 
 // use App\Http\Controllers\;
 
