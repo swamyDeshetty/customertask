@@ -8,7 +8,7 @@ use App\Http\Controllers\RoleManagement\AdminController;
 use App\Http\Controllers\RoleManagement\SuperAdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\NewApiController;
-
+use App\Http\Controllers\EmailController;
 
 
 
@@ -154,6 +154,20 @@ Route::put('/customers/{customerId}/update', [CustomerController::class, 'update
 
 Route::get('/guzzleapi', [NewApiController::class, 'guzzleapi']);
 Route::get('/curlapi', [NewApiController::class, 'CurlApi']);
+
+Route::get('/new2', [ApiController::class, 'fetchNewsFromAPI']);
+
+// Queues in laravel...
+Route::get('/emailqueue', [EmailController::class, 'sendEmail']);
+
+Route::get('email-test', function(){
+  
+    $details['email'] = 'swamybittu649@gmail.com';
+  
+    dispatch(new App\Jobs\SwamyEmailJob($details));
+  
+    dd('done');
+});
 
 
 

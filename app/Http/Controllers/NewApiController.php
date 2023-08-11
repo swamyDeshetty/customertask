@@ -60,9 +60,8 @@ class NewApiController extends Controller
             return response()->json(['message' => 'Something went wrong'], 500);
         }
     }
-    
-    
 
+ 
     public function CurlApi(Request $request)
     {
         $base_url = 'https://shopify.rewardssandbox.zithara.com/api/v2';
@@ -90,7 +89,7 @@ class NewApiController extends Controller
 
         try {
             $response = curl_exec($ch);
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE); // it will get status code
            
 
             if ($httpCode >= 400) {
