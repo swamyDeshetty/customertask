@@ -9,6 +9,7 @@ use App\Http\Controllers\RoleManagement\SuperAdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\NewApiController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\NewEmailQueueController;
 
 
 
@@ -82,6 +83,7 @@ Route::post('/login-user', [LoginAuthController::class, 'loginUser'])->name('log
 //Register 
 Route::get('/custom-registration', [LoginAuthController::class, 'registration']);
 Route::post('/register-user', [LoginAuthController::class, 'RegisterUser'])->name('register-user');
+
 
 // Admin
 Route::middleware(['role:admin'])->group(function () {
@@ -158,16 +160,12 @@ Route::get('/curlapi', [NewApiController::class, 'CurlApi']);
 Route::get('/new2', [ApiController::class, 'fetchNewsFromAPI']);
 
 // Queues in laravel...
-Route::get('/emailqueue', [EmailController::class, 'sendEmail']);
 
-Route::get('email-test', function(){
-  
-    $details['email'] = 'swamybittu649@gmail.com';
-  
-    dispatch(new App\Jobs\SwamyEmailJob($details));
-  
-    dd('done');
-});
+Route::get('/mail', [NewEmailQueueController::class, 'index']);
+
+
+
+
 
 
 

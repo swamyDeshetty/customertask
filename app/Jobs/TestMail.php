@@ -8,10 +8,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Mail\SendEmailTest;
+use App\Mail\TestQueueMail;
 use Mail;
 
-class Sendnew implements ShouldQueue
+class TestMail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -29,7 +29,7 @@ class Sendnew implements ShouldQueue
     public function handle(): void
     {
         //
-        $email = new SendEmailTest();
-        Mail::to($this->details['email'])->send($email);
+
+        Mail::to('swamybittu649@gmail.com')->send(new TestQueueMail());
     }
 }

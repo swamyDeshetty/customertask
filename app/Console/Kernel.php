@@ -13,8 +13,11 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('minute:update')->everyMinute();
+        $schedule->command('queue:work')->everyMinute();
+
     }
 
+  
  
     /**
      * Register the commands for the application.
